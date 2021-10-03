@@ -61,28 +61,29 @@ async function loadData(){
 
 	var temp = "";
 
-	table.forEach(row => {
-		const columns = row.split(',');
-			if(columns[1] != "undefined"){
-				temp += "<tr>";
-				temp += "<td>" + columns[1] + "</td>";
-				temp += "<td>" + columns[2] + "</td>";
-				temp += "<td>" + columns[3] + "</td>";
-				temp += "<td>" + columns[4] + "</td>";
-				temp += "<td>" + columns[5] + "</td>";
-				temp += "<td>" + columns[6] + "</td>";
-				temp += "<td>" + columns[7] + "</td>";
-				temp += "<td>" + columns[8] + "</td>";
-				temp += "<td>" + columns[9] + "</td>";
-				temp += "<td>" + columns[10] + "</td>";
-				temp += "<td>" + columns[11] + "</td>";
-				temp += "<td>" + columns[12] + "</td>";
-				temp += "<td>" + columns[13] + "</td>";
-				temp += "<td>" + columns[14] + "</td>";
-				temp += "<td>" + columns[15] + "</td></tr>";
-				document.getElementById('data').innerHTML = temp;
-			}
-		});
+	// table.forEach(row => {
+	// 	const columns = row.split(',');
+	// 		if(columns[1] != null){
+	// 			temp += "<tr>";
+	// 			temp += "<td>" + columns[1] + "</td>";
+	// 			temp += "<td>" + columns[2] + "</td>";
+	// 			temp += "<td>" + columns[3] + "</td>";
+	// 			temp += "<td>" + columns[4] + "</td>";
+	// 			temp += "<td>" + columns[5] + "</td>";
+	// 			temp += "<td>" + columns[6] + "</td>";
+	// 			temp += "<td>" + columns[7] + "</td>";
+	// 			temp += "<td>" + columns[8] + "</td>";
+	// 			temp += "<td>" + columns[9] + "</td>";
+	// 			temp += "<td>" + columns[10] + "</td>";
+	// 			temp += "<td>" + columns[11] + "</td>";
+	// 			temp += "<td>" + columns[12] + "</td>";
+	// 			temp += "<td>" + columns[13] + "</td>";
+	// 			temp += "<td>" + columns[14] + "</td>";
+	// 			temp += "<td>" + columns[15] + "</td>";
+	// 			temp += "<td>" + columns[16] + "</td></tr>";
+	// 			document.getElementById('data').innerHTML = temp;
+	// 		}
+	// 	});
 
 		var temp = "";
 		const sat_table = sat_data.split('\r\n').slice(1);
@@ -202,6 +203,54 @@ function produceChart(){
 }
 
 produceChart()
+
+async function generateTable(){
+	
+	const load_dir = 'data/urbanprofile/taytay.csv';
+	const response = await fetch(load_dir);
+	const data = await response.text();
+
+	const table = data.split('\r\n').slice(1);
+
+	var temp = "";
+
+	var gender = document.getElementById("gender")
+	var gen_text= gender.options[gender.selectedIndex].text;
+	var age_group = document.getElementById("age_group")
+	var age_text= age_group.options[age_group.selectedIndex].text;
+	// var interests = document.getElementById("interests")
+	// var int_text= interests.options[interests.selectedIndex].text;
+	// console.log(gender)
+
+	if(gender && age_group){
+		table.forEach(row => {
+			const columns = row.split(',');
+			if(columns[1] == gen_text && columns[2] == age_text){
+				temp += "<tr>";
+				temp += "<td>" + columns[1] + "</td>";
+				temp += "<td>" + columns[2] + "</td>";
+				temp += "<td>" + columns[3] + "</td>";
+				temp += "<td>" + columns[4] + "</td>";
+				temp += "<td>" + columns[5] + "</td>";
+				temp += "<td>" + columns[6] + "</td>";
+				temp += "<td>" + columns[7] + "</td>";
+				temp += "<td>" + columns[8] + "</td>";
+				temp += "<td>" + columns[9] + "</td>";
+				temp += "<td>" + columns[10] + "</td>";
+				temp += "<td>" + columns[11] + "</td>";
+				temp += "<td>" + columns[12] + "</td>";
+				temp += "<td>" + columns[13] + "</td>";
+				temp += "<td>" + columns[14] + "</td>";
+				temp += "<td>" + columns[15] + "</td>";
+				temp += "<td>" + columns[16] + "</td></tr>";
+				document.getElementById('data').innerHTML = temp;
+				
+			}
+			// if(columns[1] != null){
+			// }
+		});
+	}
+}
 
 	// fetch("data/urbanprofile/taytay.csv").then(
 	// 	res => {
