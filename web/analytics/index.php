@@ -208,13 +208,11 @@
 
 				<section id="about" class="w3-padding">
 					<div class="w3-xlarge" >About</div>
-					<p>This is a demonstration portal to illustrate various analytics visualizations and web-based dashboards.</p>
-					<p>CirroLytix enables researchers, brands, and organizations harness data without unnecessary complexity. Through the use of digital tools developed by CirroLytix, clients are able to navigate data and generate actionable insights.</p>
 					<hr/>
 				</section>			
 
 				<footer class="w3-padding w3-small w3-indigo">
-					&copy; 2019 CirroLytix Research Services
+					&copy; ETHNO - Urban Profiling
 				</footer>
 			</div>	
 	</div>
