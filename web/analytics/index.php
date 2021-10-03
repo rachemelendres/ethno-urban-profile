@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>CirroLytix Analytics Demo</title>
+	<title>ETHNO Urban Profiling</title>
 	<link rel="stylesheet" href="resources/css/all.css"/>
 	<link rel="stylesheet" href="resources/app_css.css"/>
 	<link rel="stylesheet" href="resources/w3.css"/>	
